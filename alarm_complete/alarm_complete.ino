@@ -13,13 +13,13 @@ int currentState = ALARM_OFF; //start off with the alarm deactivated
 
 //Some pin definitions. The RFID is taken care of for us.
 const int buttonPin = 7;
-const int ledPin = 13;
 const int photoPin = A0;
 const int piezoPin = 11;
+const int ledPin = 13;
 
 void setup(void) 
 {
-  Serial.begin(115200);
+  Serial.begin(9600);
   Serial.println("Hello!");
 
   if(!SetupRFIDShield()) //sets up the RFID
@@ -29,8 +29,9 @@ void setup(void)
   }
 
   pinMode(buttonPin, INPUT_PULLUP); //if we use INPUT_PULLUP, we don't have to have an external pullup resistor
-  pinMode(ledPin, OUTPUT);
+  pinMode(photoPin, INPUT);
   pinMode(piezoPin, OUTPUT);
+  pinMode(ledPin, OUTPUT);
 
   Serial.println("setup() complete");
 }
