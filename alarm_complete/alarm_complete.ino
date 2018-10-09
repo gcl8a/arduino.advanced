@@ -13,9 +13,9 @@ int currentState = ALARM_OFF; //start off with the alarm deactivated
 
 //Some pin definitions. The RFID is taken care of for us.
 const int buttonPin = 7;
-const int photoPin = A0;
-const int piezoPin = 11;
-const int ledPin = 13;
+const int photoPin  = A0;
+const int piezoPin  = 11;
+const int ledPin    = 13;
 
 void setup(void) 
 {
