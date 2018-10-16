@@ -128,9 +128,13 @@ bool CheckForRFID(void)
     if(uidLength == 4)
     {
       Serial.print(uid[0], HEX);
+      Serial.print('\t');
       Serial.print(uid[1], HEX);
+      Serial.print('\t');
       Serial.print(uid[2], HEX);
+      Serial.print('\t');
       Serial.print(uid[3], HEX);
+      Serial.print('\n');
       if(targetID[0] == uid[0] && targetID[1] == uid[1] && targetID[2] == uid[2] && targetID[3] == uid[3])
       {
         Serial.println("Match!");
