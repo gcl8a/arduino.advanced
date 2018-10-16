@@ -70,7 +70,7 @@ void HandleRFID(void)
 }
 
 /*
- * Code for checking the button
+ * Code for checking the button -- you don't need to edit this one
  */
 int prevButtonState = HIGH; //button up => pin reads HIGH
 
@@ -90,7 +90,7 @@ bool CheckArmingButton(void)
 }
 
 /*
- * Code for checking the laser.
+ * Code for checking the laser. YOU WILL NEED TO EDIT THIS ONE
  */
 enum {DARK, LIGHT};
 int prevLaserSensorState = DARK; //the program starts with the laser off
@@ -104,7 +104,9 @@ bool CheckIfLaserBroken(void)
   return retVal;
 }
 
-
+/*
+ * DON'T TOUCH THIS FUNCTION OR ANYTHING BELOW IT -- it's all ready to go
+ */
 bool CheckForRFID(void) 
 /*
  * The RFID is complicated enough that we've taken care of it for you. Note, however, that this checker
@@ -125,7 +127,10 @@ bool CheckForRFID(void)
     Serial.println("Tag found!");
     if(uidLength == 4)
     {
-      Serial.print(uid[0]);//...
+      Serial.print(uid[0], HEX);
+      Serial.print(uid[1], HEX);
+      Serial.print(uid[2], HEX);
+      Serial.print(uid[3], HEX);
       if(targetID[0] == uid[0] && targetID[1] == uid[1] && targetID[2] == uid[2] && targetID[3] == uid[3])
       {
         Serial.println("Match!");
